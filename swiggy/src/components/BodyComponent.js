@@ -1,7 +1,8 @@
 import RestroCard from "./RestroCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-
+import { RESTROCARD_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 const BodyComponent=()=>{
 
     let [restrauntList,setRestrauntList]=useState([])
@@ -13,7 +14,7 @@ const BodyComponent=()=>{
     },[])
 
     const fetchData=async()=>{
-        const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9599618&lng=77.6131577&page_type=DESKTOP_WEB_LISTING")
+        const data=await fetch(RESTROCARD_URL)
         // console.log(await data.json())
         const restListFromSwiggy=await data.json()
         setRestrauntList(restListFromSwiggy?.data?.cards[2]?.data?.data?.cards)
@@ -32,7 +33,7 @@ const BodyComponent=()=>{
     <>
     <div className="filter"> <button className="filter-btn" onClick={filterRestraunt}>Filter</button> <input type="text" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/><button onClick={searchRestaurant}>Search</button></div>
     <div className="restroContainer">
-        {restrauntList.map((restraunt)=><RestroCard key={restraunt.data.id} resData={restraunt}/>)}
+        {restrauntList.map((restraunt)=><Link key={restraunt.data.id} to={"/menu/"+restraunt.data.id}><RestroCard resData={restraunt}/></Link>)}
     </div>
     </>
 )}
