@@ -70,3 +70,10 @@ body {
     margin-top: 50px;
 }
 
+.about{
+    text-align: center;
+    margin: 70px;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
