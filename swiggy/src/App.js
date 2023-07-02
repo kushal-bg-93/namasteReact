@@ -1,4 +1,4 @@
-import React from "react";
+import React,{lazy,Suspense} from "react";
 import ReactDom from "react-dom/client"
 import Header from "./components/Header";
 import BodyComponent from "./components/BodyComponent";
@@ -7,12 +7,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import MenuComponent from "./components/MenuComponent";
+import Shimmer from "./components/Shimmer";
 
 // const heading=<h1>This is heading from swiggy</h1>
 
 
 
-
+let Grocery=lazy(()=>import('./components/Grocery'))
 
 const AppLayout=()=>(
     <>
@@ -43,7 +44,11 @@ const router=createBrowserRouter([
             {
                 path:"/menu/:resId",
                 element:<MenuComponent/>
-            }
+            },
+            {
+                path:"/grocery",
+                element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
+            },
         ]
     }
 ])
