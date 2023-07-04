@@ -5,7 +5,7 @@ import {BsCircleFill} from "react-icons/bs"
 import {TbTruckDelivery} from "react-icons/tb"
 const RestroCard=({resData})=>{
 
-    console.log('This is resdata>>>>',resData)
+    console.log('This is resdata>>>>',resData.data)
     const{name,costForTwo,cuisines,cloudinaryImageId,avgRating,area,slaString,aggregatedDiscountInfoV3,veg,feeDetails,promoted}=resData?.data;
     return (
       <div className="w-96 m-5 h-[460] border p-6 hover:border shadow-md hover:shadow-lg rounded-lg hover:scale-110 duration-150">

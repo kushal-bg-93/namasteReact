@@ -1,22 +1,8 @@
+import { ShimmerPostList } from "react-shimmer-effects-18";
 const Shimmer=()=>{
     return (
-        <div className="shimmerContainer">
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
-            <div className="shimmerCard"></div>
+        <div className="mt-20 mx-20">
+            <ShimmerPostList postStyle="STYLE_FOUR" col={4} row={2} gap={30} />
         </div>
     )
 }
