@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import MenuComponent from "./components/MenuComponent";
 import Shimmer from "./components/Shimmer";
+import InScroll from "./components/InScroll";
 
 // const heading=<h1>This is heading from swiggy</h1>
 
@@ -49,6 +50,10 @@ const router=createBrowserRouter([
                 path:"/grocery",
                 element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
             },
+            // {
+            //     path:"/infinite",
+            //     element:<InScroll/>
+            // }
         ]
     }
 ])
