@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import MenuComponent from "./components/MenuComponent";
 import Shimmer from "./components/Shimmer";
 import InScroll from "./components/InScroll";
+import ShimmerTest from "./components/ShimmerTest";
 
 // const heading=<h1>This is heading from swiggy</h1>
 
@@ -49,6 +50,10 @@ const router=createBrowserRouter([
             {
                 path:"/grocery",
                 element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
+            },
+            {
+                path:"/shimmer",
+                element:<ShimmerTest/>
             },
             // {
             //     path:"/infinite",

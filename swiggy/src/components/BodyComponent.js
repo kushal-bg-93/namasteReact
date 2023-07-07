@@ -41,11 +41,11 @@ const BodyComponent=()=>{
     }
 
     const searchRestaurant=()=>{
-        setRestrauntList(searchRestaurantList.filter((restaurant)=>restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())))
+        setRestrauntList(searchRestaurantList.filter((restaurant)=>restaurant.data.data.name.toLowerCase().includes(searchText.toLowerCase())))
     }
 
     const filterRestraunt=()=>{
-        restrauntList=setRestrauntList(searchRestaurantList.filter((restraunt)=>restraunt.data.avgRating>=4))
+        restrauntList=setRestrauntList(searchRestaurantList.filter((restraunt)=>restraunt.data.data.avgRating>=4))
     }
     // console.log('restrauntList>>',restrauntList)
     
