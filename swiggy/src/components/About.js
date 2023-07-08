@@ -52,7 +52,7 @@ class About extends React.Component{
                         
                         <p className="text-gray-950">MERN STACK DEVELOPER | 1.8 YRS | Waycool Foods</p>
                         <div className="flex gap-3 icons ml-4">
-                            <a href="https://github.com/kushal-bg-93/namasteReact" target="_blank"><BsGithub className="font-bold hover:scale-110 hover:font-extrabold duration-150 text-3xl"/></a>
+                            {/* <a href="https://github.com/kushal-bg-93/namasteReact" target="_blank"><BsGithub className="font-bold hover:scale-110 hover:font-extrabold duration-150 text-3xl"/></a> */}
                             <a href="https://in.linkedin.com/in/kushal-b-g-401806233" target="_blank"><BsLinkedin className="font-bold hover:scale-110 hover:font-extrabold duration-150 text-3xl"/></a>
                             
                         </div>
