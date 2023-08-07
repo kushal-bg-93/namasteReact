@@ -18,7 +18,7 @@ const InScroll=()=>{
 
       data=await data.json()
 
-      setResList(data.data.cards)
+      setResList(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
       setPage(page+16)
   }
 
@@ -31,7 +31,7 @@ const InScroll=()=>{
       data=await data.json();
 
       setPage(page+16)
-      setResList([...resList,...data.data.cards]);
+      setResList([...resList,...data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants]);
       setIsFetching(false)
       setLoadStatus(false)
   }

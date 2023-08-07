@@ -10,6 +10,7 @@ import MenuComponent from "./components/MenuComponent";
 import Shimmer from "./components/Shimmer";
 import InScroll from "./components/InScroll";
 import ShimmerTest from "./components/ShimmerTest";
+import AccordionTest from "./components/AccordionTest"
 
 // const heading=<h1>This is heading from swiggy</h1>
 
@@ -55,6 +56,10 @@ const router=createBrowserRouter([
                 path:"/shimmer",
                 element:<ShimmerTest/>
             },
+            {
+                path:"/accordion",
+                element:<AccordionTest/>
+            }
             // {
             //     path:"/infinite",
             //     element:<InScroll/>

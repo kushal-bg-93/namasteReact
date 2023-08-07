@@ -4,9 +4,10 @@ import { LiaRupeeSignSolid } from "react-icons/lia"
 import { BsCircleFill } from "react-icons/bs"
 import { TbTruckDelivery } from "react-icons/tb"
 const RestroCard = ({ resData }) => {
+    console.log('This is resData >>>>restrocard>>>',resData)
 
     // console.log('This is resdata>>>>', resData)
-    const { name, costForTwo, cuisines, cloudinaryImageId, avgRating, area, slaString, aggregatedDiscountInfoV3, veg, feeDetails, promoted } = resData?.data?.data;
+    const { name, costForTwo, cuisines, cloudinaryImageId, avgRating, area, slaString, aggregatedDiscountInfoV3, veg, feeDetails, promoted } = resData?.info;
     return (
         <div className="w-96 m-5 h-[460] border p-6 hover:border shadow-md hover:shadow-lg rounded-lg hover:scale-110 duration-150">
             {aggregatedDiscountInfoV3 !== undefined || promoted ? <h1 className={promoted ? "px-6 bg-yellow-600 z-10 opacity-80 text-white absolute" : "px-6 bg-red-600 opacity-80 z-10 text-white absolute"}>{promoted ? "PROMOTED" : aggregatedDiscountInfoV3 ? aggregatedDiscountInfoV3.header : avgRating * 10 + "% OFF"}</h1> : ""}

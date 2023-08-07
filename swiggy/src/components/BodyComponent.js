@@ -22,8 +22,8 @@ const BodyComponent=()=>{
         const data=await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9599618&lng=77.6131577&offset=${page}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`)
         // console.log(await data.json())
         const restListFromSwiggy=await data.json()
-        setRestrauntList(restListFromSwiggy?.data?.cards)
-        setSearchRestaurantList(restListFromSwiggy?.data?.cards)
+        setRestrauntList(restListFromSwiggy?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setSearchRestaurantList(restListFromSwiggy?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setPage(page+16)
     }
 
@@ -35,7 +35,7 @@ const BodyComponent=()=>{
         data=await data.json();
   
         setPage(page+16)
-        setRestrauntList([...restrauntList,...data.data.cards]);
+        setRestrauntList([...restrauntList,...data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants]);
         setIsFetching(false)
         setLoadStatus(false)
     }
@@ -51,9 +51,10 @@ const BodyComponent=()=>{
     
     return (!restrauntList.length)?(<Shimmer/>):(
     <div>
+        {console.log('This is restraunt list>>>>',restrauntList)}
     <div className="m-4 flex justify-between"><button className="py-2 px-5 rounded-lg text-gray-400 hover:text-gray-300 duration-150 bg-gray-800 " onClick={filterRestraunt}>Filter</button><div> <input type="text" className=" border border-gray-400 rounded-lg p-2 ml-4 mr-4 shadow-sm" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/><button className="py-2 px-5 hover:text-gray-300 duration-150 rounded-lg text-gray-400 bg-gray-800 " onClick={searchRestaurant}>Search</button></div></div>
     <div className="flex flex-wrap justify-start ml-20 mx-auto">
-        {restrauntList.map((restraunt)=><Link key={restraunt.data.data.id} to={"/menu/"+restraunt.data.data.id}><RestroCard resData={restraunt}/></Link>)}
+        {restrauntList.map((restraunt)=><Link key={restraunt?.info?.id} to={"/menu/"+restraunt?.info?.id}><RestroCard resData={restraunt}/></Link>)}
     </div>
     {loadStatus ? <Shimmer/>:""}
     </div>
